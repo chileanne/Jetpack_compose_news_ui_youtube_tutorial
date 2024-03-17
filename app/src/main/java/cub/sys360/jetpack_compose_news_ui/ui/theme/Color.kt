@@ -13,4 +13,6 @@ val Pink40 = Color(0xFF7D5260)
 
 val lightGrey = Color(0xFFf6f6f6)
 
+val white = Color.White
+
 val lightblack = Color(0xFF404040)

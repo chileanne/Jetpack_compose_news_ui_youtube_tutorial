@@ -1,26 +1,21 @@
 package cub.sys360.jetpack_compose_news_ui.presentation
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -28,7 +23,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
@@ -36,13 +30,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import cub.sys360.jetpack_compose_news_ui.R
 import cub.sys360.jetpack_compose_news_ui.core.sharedIcons
+import cub.sys360.jetpack_compose_news_ui.viewmodel.homeViewmodel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsScreen(){
+fun DetailsScreen(navController: NavHostController, index: Int?) {
+    val viewmodel = homeViewmodel()
+
+
    Scaffold (
       topBar = {
           CenterAlignedTopAppBar(
@@ -56,7 +54,7 @@ fun DetailsScreen(){
                   sharedIcons(
                       icon = Icons.Filled.KeyboardArrowLeft,
                       onclick = {
-
+                          navController.popBackStack();
                       },
                       iconSize = 26.dp
                   )
@@ -94,7 +92,7 @@ fun DetailsScreen(){
                       .height(280.dp)
               ) {
                     Image(
-                        painter = painterResource(id = R.drawable.spfour) ,
+                        painter = painterResource(id = viewmodel.recommedationData[index!!].imageUrl) ,
                         contentScale = ContentScale.FillBounds,
                         contentDescription = "")
                   
@@ -105,7 +103,7 @@ fun DetailsScreen(){
 
             /**Description **/
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Victor Osimehn stunning form in the Afcon games",
+            Text(text = viewmodel.recommedationData[index!!].title,
                 style = MaterialTheme.typography.bodyLarge)
             Spacer(modifier = Modifier.height(8.dp))
              Row {
@@ -113,11 +111,11 @@ fun DetailsScreen(){
                  Text(text = "1 hour ago",
                      style = MaterialTheme.typography.bodySmall)
                  Spacer(modifier = Modifier.width(8.dp))
-                 Text(text = "3 minutes read",
+                 Text(text = viewmodel.recommedationData[index!!].timestamp,
                      style = MaterialTheme.typography.bodySmall)
              }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "By Cub360",
+            Text(text = viewmodel.recommedationData[index!!].reportedBy,
                 style = MaterialTheme.typography.bodyMedium.copy(
                     fontWeight = FontWeight.W600
                 )
@@ -125,7 +123,7 @@ fun DetailsScreen(){
             Spacer(modifier = Modifier.height(12.dp))
 
             /** Content**/
-            Text(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu id ipsum finibus efficitur. Etiam fringilla malesuada erat, sed tempus neque. Vivamus urna purus, efficitur eu nisl sit amet, ornare ultricies ligula. Vivamus nec dignissim velit. Vestibulum ut ex risus. Suspendisse tempus gravida sapien, non semper tellus lacinia id. Nulla vitae tellus ut est vehicula cursus id vitae est. Duis est risus, suscipit sit amet nunc at, vulputate vestibulum orci. Nulla tempor dui eu libero tristique, nec efficitur dolor luctus. Vivamus et cursus urna. Ut ac tellus eu odio consequat hendrerit. In ut laoreet odio, sit amet imperdiet leo. Cras sit amet risus tellus. Nam pulvinar, nibh semper mollis facilisis, dolor est commodo dolor, eget pellentesque magna nunc sit amet ex. Mauris bibendum ultricies diam et semper. Quisque aliquet eros nunc, vel pretium diam consectetur a.",
+            Text(text = viewmodel.recommedationData[index!!].desc,
                 style = MaterialTheme.typography.bodyMedium
             )
 

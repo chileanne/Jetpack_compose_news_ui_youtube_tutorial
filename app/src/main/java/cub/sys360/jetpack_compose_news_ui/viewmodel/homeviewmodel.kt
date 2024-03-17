@@ -22,10 +22,11 @@ class homeViewmodel: ViewModel() {
                 title = "Stellar performance Takes Super Eagles to new heights",
                 station = "CNN",
                 desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu id ipsum finibus efficitur. Etiam fringilla",
-                imageUrl = R.drawable.spfive,
+                imageUrl = R.drawable.spseven,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
@@ -37,20 +38,22 @@ class homeViewmodel: ViewModel() {
                 imageUrl = R.drawable.spfour,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
 
         carouselData.add(
             NewModel(
-                title = "Super Eagles of Nigeria on their way up",
+                title = "Super Eagles of Nigeria on their way up to the finals of the AFCON",
                 station = "CNN",
                 desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu id ipsum finibus efficitur. Etiam fringilla",
                 imageUrl = R.drawable.spthree,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
@@ -66,7 +69,8 @@ class homeViewmodel: ViewModel() {
                 imageUrl = R.drawable.spthree,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
@@ -78,7 +82,8 @@ class homeViewmodel: ViewModel() {
                 imageUrl = R.drawable.spfour,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
@@ -90,7 +95,8 @@ class homeViewmodel: ViewModel() {
                 imageUrl = R.drawable.spseven,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 
@@ -103,7 +109,8 @@ class homeViewmodel: ViewModel() {
                 imageUrl = R.drawable.spfive,
                 category = "Sport",
                 channelLogo = R.drawable.cnn,
-                timestamp = "30 minutes ago"
+                timestamp = "30 minutes ago",
+                reportedBy = "By Cub360"
             ))
 
 

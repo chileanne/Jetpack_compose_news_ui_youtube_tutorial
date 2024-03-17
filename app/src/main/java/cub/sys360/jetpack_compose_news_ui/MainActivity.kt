@@ -10,7 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import cub.sys360.jetpack_compose_news_ui.presentation.DetailsScreen
+import androidx.navigation.compose.rememberNavController
+import cub.sys360.jetpack_compose_news_ui.core.navigation.navigationGraph
+import cub.sys360.jetpack_compose_news_ui.presentation.SeeMoreScreen
 import cub.sys360.jetpack_compose_news_ui.ui.theme.Jetpack_compose_news_uiTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,32 +20,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Jetpack_compose_news_uiTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-//                    Greeting("Android")
 
-                    DetailsScreen()
-                }
+                 val navController = rememberNavController();
+                navigationGraph(navController = navController);
+
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Jetpack_compose_news_uiTheme {
-        Greeting("Android")
-    }
-}

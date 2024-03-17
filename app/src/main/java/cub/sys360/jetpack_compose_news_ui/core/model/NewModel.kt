@@ -7,5 +7,6 @@ data class NewModel(
     val desc: String,
     val category: String,
     val channelLogo : Int,
-    val timestamp : String
+    val timestamp : String,
+    val reportedBy : String
 )
